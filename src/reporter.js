@@ -1,7 +1,7 @@
 import './styles.scss';
 
-class Reporter {
-  constructor() {
+window.Reporter = class Reporter {
+  constructor(args) {
     if (window.jQuery) {
       jQuery('body')
         .append('<div id="reporter_topbarHolder"></div>')
@@ -85,7 +85,7 @@ class Reporter {
         holder.children().last().addClass('visible');
       }, 50);
       this.messagesQueue.shift();
-      // this.messageCountdown();
+      this.messageCountdown();
     }
   }
   constructMessage(msg) {
@@ -125,5 +125,3 @@ class Reporter {
     }, 400);
   }
 };
-
-window.Reporter = Reporter;
