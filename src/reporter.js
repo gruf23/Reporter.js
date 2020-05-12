@@ -88,7 +88,6 @@ window.Reporter = class Reporter {
       this.messageCountdown();
     }
   }
-  // todo: add 'clearMessages method'
   constructMessage(payload) {
     const message = jQuery('<div />');
     message.addClass(`rptr-message ${payload.type}`);
