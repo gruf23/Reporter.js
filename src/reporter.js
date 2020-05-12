@@ -122,4 +122,15 @@ window.Reporter = class Reporter {
       this.displayMessage();
     }, 400);
   }
+  clearMessages() {
+    this.messagesQueue = [];
+    const messages = jQuery('#reporter_messageHolder .visible');
+    messages.removeClass('visible');
+    setTimeout(() => {
+      messages.remove();
+    }, 400);
+  }
+  emptyMessagesQueue() {
+    this.messagesQueue = [];
+  }
 };

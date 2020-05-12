@@ -18,7 +18,5 @@ jQuery(document).ready(function () {
       closable: jQuery('#msg-closable').val() === '1',
     })
   });
-  jQuery('#hide-popup').on('click', function () {
-
-  });
+  jQuery('#hide-popup').on('click', () => instance.clearMessages());
 });
