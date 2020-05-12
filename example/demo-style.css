@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap');
+
+body {
+    font-family: 'Lato', 'Roboto', sans-serif;
+}
+#wrapper {
+    width: 100%;
+    max-width: 960px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+section {
+    margin: 4rem auto;
+}
+p {
+    color: #888888;
+}
+.controls {
+    display: flex;
+}
+.controls > div {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% / 3);
+    min-width: 100px;
+    margin-right: 1rem;
+}
+.controls > div label {
+    margin-bottom: .3rem;
+    color: #888888;
+}
+.controls:last-child {
+    margin-right: 0;
+}
+select,
+input {
+    background-color: transparent;
+    border: 2px solid #333333;
+    border-radius: 0;
+    outline: none;
+    color: #333333;
+    height: 40px;
+    box-sizing: border-box;
+}
+input {
+    padding: 0 5px;
+}
+fieldset {
+    margin-top: 1rem;
+    border: none;
+    outline: none;
+    padding: 0;
+}
+fieldset button {
+    margin-right: 1rem;
+}
+fieldset button:last-of-type {
+    margin-right: 0;
+}
+button.primary {
+    padding: .5rem 3rem;
+    border: 1px solid #333333;
+    color: #333333;
+    background-color: rgba(0, 0, 0, 0);
+    transition: .3s;
+    text-transform: uppercase;
+}
+button.primary:hover,
+button.secondary:hover {
+    background-color: rgba(0, 0, 0, .1);
+    text-decoration: none;
+}
+button.secondary {
+    padding: .5rem 3rem;
+    border: none;
+    color: #333333;
+    background-color: rgba(0, 0, 0, 0);
+    transition: .3s;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
