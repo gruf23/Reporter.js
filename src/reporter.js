@@ -88,29 +88,25 @@ window.Reporter = class Reporter {
       this.messageCountdown();
     }
   }
-  // todo: rework construct
   // todo: add 'clearMessages method'
-  constructMessage(msg) {
-    const isPictured = typeof msg.image !== 'undefined';
-    let classes = msg.type;
-    if (isPictured) {
-      classes += ' pictured';
+  constructMessage(payload) {
+    const message = jQuery('<div />');
+    message.addClass(`rptr-message ${payload.type}`);
+    if (payload.closable) {
+      message.append('<span class="close"></span>');
     }
-    let message = `<div class="rptr-message ${classes}">`;
-    if (isPictured) {
-      message += `<div class="rptr-message-image"><img src="${msg.image}"></div>`;
+    if (typeof payload.image !== 'undefined') {
+      message.addClass('pictured');
+      message.append(`<div class="rptr-message-image"><img src="${msg.image}"></div>`);
     }
-    message += '<div class="rptr-message-wrap">';
-    message += '<div class="rptr-message-header">';
-    if (msg.title) {
-      message += `<span class="rptr-message-title">${msg.title}</span>`;
+    message.append('<div class="rptr-message-wrap" />');
+    message.find('.rptr-message-wrap').append('<div class="rptr-message-header" />');
+    if (typeof payload.title !== 'undefined') {
+      message.find('.rptr-message-header').html(`<span class="rptr-message-title">${payload.title}</span>`)
     }
-    message += '<span class="close fa fa-times"></span>';
-    message += '</div>';
-    if (msg.text) {
-      message += `<div class="rptr-message-content">${msg.text}</div>`;
+    if (typeof payload.text !== 'undefined') {
+      message.find('.rptr-message-wrap').append(`<div class="rptr-message-content">${payload.text}</div>`);
     }
-    message += '</div></div>';
     return message;
   }
   messageCountdown(t = 10000) {

@@ -106,8 +106,8 @@ $color-info: #f1f1f1;
   }
   .close {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 3px;
+    right: 5px;
     cursor: pointer;
     width: 30px;
     height: 30px;
@@ -117,10 +117,10 @@ $color-info: #f1f1f1;
     &:before {
       content: '';
       position: absolute;
-      top: 8%;
-      left: 43%;
+      top: 15%;
+      left: 45%;
       width: 2px;
-      height: 80%;
+      height: 60%;
       border-radius: 2px;
       background-color: #212121;
     }
