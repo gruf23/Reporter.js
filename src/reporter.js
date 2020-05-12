@@ -33,7 +33,7 @@ window.Reporter = class Reporter {
       return false;
     }
     payload.type = payload.type || 'default';
-    payload.closable = payload.closable || true;
+    payload.closable = Object.keys(payload, 'closable') ? payload.closable : true;
     payload.id = payload.id || false;
     const bar = this.constructBar(payload);
     holder.append(bar);
@@ -88,6 +88,8 @@ window.Reporter = class Reporter {
       this.messageCountdown();
     }
   }
+  // todo: rework construct
+  // todo: add 'clearMessages method'
   constructMessage(msg) {
     const isPictured = typeof msg.image !== 'undefined';
     let classes = msg.type;
