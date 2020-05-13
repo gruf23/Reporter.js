@@ -1,7 +1,7 @@
 import './styles.scss';
 
 window.Reporter = class Reporter {
-  constructor(args) {
+  constructor() {
     if (window.jQuery) {
       jQuery('body')
         .append('<div id="reporter_topbarHolder"></div>')
@@ -96,7 +96,7 @@ window.Reporter = class Reporter {
     }
     if (typeof payload.image !== 'undefined') {
       message.addClass('pictured');
-      message.append(`<div class="rptr-message-image"><img src="${msg.image}"></div>`);
+      message.append(`<div class="rptr-message-image"><img src="${payload.image}"></div>`);
     }
     message.append('<div class="rptr-message-wrap" />');
     message.find('.rptr-message-wrap').append('<div class="rptr-message-header" />');
