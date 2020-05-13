@@ -1,22 +1,22 @@
 {
-  "name": "flashing.js",
-  "version": "0.1.0",
+  "name": "Reporter.js",
+  "version": "0.3.0",
   "description": "",
-  "main": "flashing.js",
+  "main": "Reporter.js",
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gruf23/flashing.js.git"
+    "url": "git+https://github.com/gruf23/Reporter.js.git"
   },
   "author": "gruf",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gruf23/flashing.js/issues"
+    "url": "https://github.com/gruf23/Reporter.js/issues"
   },
-  "homepage": "https://github.com/gruf23/flashing.js#readme",
+  "homepage": "https://github.com/gruf23/Reporter.js#readme",
   "devDependencies": {
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
