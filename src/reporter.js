@@ -94,7 +94,7 @@ window.Reporter = class Reporter {
     if (payload.closable) {
       message.append('<span class="close"></span>');
     }
-    if (typeof payload.image !== 'undefined') {
+    if (payload.image) {
       message.addClass('pictured');
       message.append(`<div class="rptr-message-image"><img src="${payload.image}"></div>`);
     }
