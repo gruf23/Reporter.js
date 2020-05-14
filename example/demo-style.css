@@ -17,13 +17,15 @@ p {
 }
 .controls {
     display: flex;
+    flex-flow: wrap;
 }
 .controls > div {
     display: flex;
     flex-direction: column;
-    width: calc(100% / 3);
+    width: calc(100% / 3 - 2rem);
     min-width: 100px;
     margin-right: 1rem;
+    box-sizing: border-box;
 }
 .controls > div label {
     margin-bottom: .3rem;
@@ -82,7 +84,6 @@ button.secondary {
 .github-corner:hover .octo-arm {
     animation: octocat-wave 560ms ease-in-out
 }
-
 @keyframes octocat-wave {
     0%, 100% {
         transform: rotate(0)
@@ -94,7 +95,6 @@ button.secondary {
         transform: rotate(10deg)
     }
 }
-
 @media (max-width: 500px) {
     .github-corner:hover .octo-arm {
         animation: none
