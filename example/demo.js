@@ -5,7 +5,7 @@ jQuery(document).ready(function () {
     instance.pushBar({
       type: jQuery('#bar-style').val(),
       text: jQuery('#bar-text').val(),
-      closable: jQuery('#bar-closable').val() === '1',
+      closable: jQuery('#bar-closable').is(':checked'),
     })
   });
   jQuery('#hide-bars').on('click', instance.clearBars());
@@ -15,7 +15,8 @@ jQuery(document).ready(function () {
       type: jQuery('#msg-style').val(),
       title: jQuery('#msg-title').val(),
       text: jQuery('#msg-text').val(),
-      closable: jQuery('#msg-closable').val() === '1',
+      closable: jQuery('#msg-closable').is(':checked'),
+      image: jQuery('#msg-picture').is(':checked') ? 'https://source.unsplash.com/random/100x100' : false
     })
   });
   jQuery('#hide-popup').on('click', () => instance.clearMessages());

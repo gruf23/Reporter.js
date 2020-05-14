@@ -17,13 +17,17 @@ p {
 }
 .controls {
     display: flex;
+    flex-flow: wrap;
+    align-items: flex-end;
 }
 .controls > div {
     display: flex;
     flex-direction: column;
-    width: calc(100% / 3);
+    width: calc(100% / 3 - 2rem);
     min-width: 100px;
     margin-right: 1rem;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
 }
 .controls > div label {
     margin-bottom: .3rem;
@@ -45,6 +49,49 @@ input {
 input {
     padding: 0 5px;
 }
+.controls > div.checkbox {
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    padding-left: .5rem;
+    padding-bottom: 2px;
+}
+.controls > div.checkbox input[type="checkbox"]{
+    margin-right: .5rem;
+}
+.controls > div.checkbox label {
+    margin-bottom: 0;
+    cursor: pointer;
+}
+.controls > div.checkbox label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #333333;
+    box-sizing: border-box;
+}
+.controls > div.checkbox label:after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 13px;
+    width: 14px;
+    height: 14px;
+    background-color: #F85C50;
+    box-sizing: border-box;
+    opacity: 0;
+}
+input[type="checkbox"]:checked + label:after {
+    opacity: 1;
+}
+input[type="checkbox"] {
+    opacity: 0;
+    visibility: hidden;
+}
+
 fieldset {
     margin-top: 1rem;
     border: none;
@@ -82,7 +129,6 @@ button.secondary {
 .github-corner:hover .octo-arm {
     animation: octocat-wave 560ms ease-in-out
 }
-
 @keyframes octocat-wave {
     0%, 100% {
         transform: rotate(0)
@@ -94,7 +140,6 @@ button.secondary {
         transform: rotate(10deg)
     }
 }
-
 @media (max-width: 500px) {
     .github-corner:hover .octo-arm {
         animation: none
