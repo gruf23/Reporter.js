@@ -1,1 +1,248 @@
-#reporter_topbarHolder{position:fixed;top:0;width:100%;z-index:100}.rptr-topbar{position:relative;width:100%;text-align:center;line-height:32px;padding:0 32px;box-sizing:border-box}.rptr-topbar .close{position:absolute;top:0;right:0;cursor:pointer;width:32px;height:32px;transition:.2s;opacity:.5}.rptr-topbar .close:after,.rptr-topbar .close:before{content:'';position:absolute;top:15%;left:43%;width:2px;height:60%;border-radius:2px;background-color:#212121}.rptr-topbar .close:after{transform:rotate(45deg)}.rptr-topbar .close:before{transform:rotate(-45deg)}.rptr-topbar .close:hover{opacity:1}.rptr-topbar.default{background-color:#f1f1f1;color:#000000}.rptr-topbar.success{background-color:#6bc259;color:#ffffff}.rptr-topbar.warning{background-color:#ffd600;color:#ffffff}.rptr-topbar.error{background-color:#f44336;color:#ffffff}#reporter_messageHolder{position:fixed;right:20px;bottom:20px;width:300px;display:flex;flex-direction:column-reverse;z-index:10000}@media screen and (max-width: 1024px){#reporter_messageHolder{width:calc(100% - 40px);bottom:auto;top:10px}}.rptr-message{display:flex;opacity:0;font-weight:normal;position:relative;width:100%;margin-bottom:10px;padding-right:40px;box-sizing:border-box;text-align:left;box-shadow:0 0 2px rgba(0,0,0,0.16),0 3px 6px rgba(0,0,0,0.23);transform:translate3d(50px, 0, 0);border-radius:5px;transition:.5s}@media screen and (max-width: 1024px){.rptr-message{transform:translate3d(0, -50px, 0)}}.rptr-message:first-of-type{margin-bottom:0}.rptr-message.visible{opacity:1;transform:translate3d(0, 0, 0)}.rptr-message .close{position:absolute;top:3px;right:5px;cursor:pointer;width:30px;height:30px;transition:.2s;opacity:.5}.rptr-message .close:after,.rptr-message .close:before{content:'';position:absolute;top:15%;left:45%;width:2px;height:60%;border-radius:2px;background-color:#212121}.rptr-message .close:after{transform:rotate(45deg)}.rptr-message .close:before{transform:rotate(-45deg)}.rptr-message .close:hover{opacity:1}.rptr-message.default{background-color:#f1f1f1;color:#212121}.rptr-message.success{background-color:#6bc259;color:#ffffff}.rptr-message.warning{background-color:#ffd600;color:#212121}.rptr-message.error{background-color:#f44336;color:#ffffff}.rptr-message a{color:#ffffff;text-decoration:underline;font-weight:bold;cursor:pointer}.rptr-message-header{font-weight:bold;padding:0 30px 0 10px}.rptr-message-title{line-height:32px}.rptr-message-image{width:52px;height:auto;padding:10px}.rptr-message-content{padding:10px}.mobile-body .rptr-message .close{width:40px;line-height:40px;font-size:18px}.mobile-body .rptr-message .rptr-message-header,.mobile-body .rptr-message .rptr-message-content{font-size:16px}
+#reporter_topbarHolder {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100
+}
+
+.rptr-topbar {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    line-height: 32px;
+    padding: 0 32px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.rptr-topbar .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    -webkit-transition: .2s;
+    -o-transition: .2s;
+    transition: .2s;
+    opacity: .5
+}
+
+.rptr-topbar .close:after, .rptr-topbar .close:before {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 43%;
+    width: 2px;
+    height: 60%;
+    border-radius: 2px;
+    background-color: #212121
+}
+
+.rptr-topbar .close:after {
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg)
+}
+
+.rptr-topbar .close:before {
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg)
+}
+
+.rptr-topbar .close:hover {
+    opacity: 1
+}
+
+.rptr-topbar.default {
+    background-color: #f1f1f1;
+    color: #000000
+}
+
+.rptr-topbar.success {
+    background-color: #6bc259;
+    color: #ffffff
+}
+
+.rptr-topbar.warning {
+    background-color: #ffd600;
+    color: #ffffff
+}
+
+.rptr-topbar.error {
+    background-color: #f44336;
+    color: #ffffff
+}
+
+#reporter_messageHolder {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 300px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+    z-index: 10000
+}
+
+@media screen and (max-width: 1024px) {
+    #reporter_messageHolder {
+        width: calc(100% - 40px);
+        bottom: auto;
+        top: 10px
+    }
+}
+
+.rptr-message {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    opacity: 0;
+    font-weight: normal;
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+    padding-right: 40px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: left;
+    -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    -webkit-transform: translate3d(50px, 0, 0);
+    transform: translate3d(50px, 0, 0);
+    border-radius: 5px;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s
+}
+
+@media screen and (max-width: 1024px) {
+    .rptr-message {
+        -webkit-transform: translate3d(0, -50px, 0);
+        transform: translate3d(0, -50px, 0)
+    }
+}
+
+.rptr-message:first-of-type {
+    margin-bottom: 0
+}
+
+.rptr-message.visible {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0)
+}
+
+.rptr-message .close {
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    -webkit-transition: .2s;
+    -o-transition: .2s;
+    transition: .2s;
+    opacity: .5
+}
+
+.rptr-message .close:after, .rptr-message .close:before {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 45%;
+    width: 2px;
+    height: 60%;
+    border-radius: 2px;
+    background-color: #212121
+}
+
+.rptr-message .close:after {
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg)
+}
+
+.rptr-message .close:before {
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg)
+}
+
+.rptr-message .close:hover {
+    opacity: 1
+}
+
+.rptr-message.default {
+    background-color: #f1f1f1;
+    color: #212121
+}
+
+.rptr-message.success {
+    background-color: #6bc259;
+    color: #ffffff
+}
+
+.rptr-message.warning {
+    background-color: #ffd600;
+    color: #212121
+}
+
+.rptr-message.error {
+    background-color: #f44336;
+    color: #ffffff
+}
+
+.rptr-message a {
+    color: #ffffff;
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer
+}
+
+.rptr-message-wrap {
+    padding-left: 10px;
+    padding-bottom: 10px
+}
+
+.rptr-message-header {
+    font-weight: bold;
+    padding-right: 30px
+}
+
+.rptr-message-title {
+    line-height: 32px
+}
+
+.rptr-message-image {
+    height: auto;
+    padding: 10px
+}
+
+.rptr-message-image img {
+    width: 70px;
+    height: auto;
+    border-radius: 2px
+}
+
+.mobile-body .rptr-message .close {
+    width: 40px;
+    line-height: 40px;
+    font-size: 18px
+}
+
+.mobile-body .rptr-message .rptr-message-header, .mobile-body .rptr-message .rptr-message-content {
+    font-size: 16px
+}
+
+.autoprefixer-test {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}

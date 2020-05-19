@@ -29,7 +29,7 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader']
+          use: ['css-loader', 'sass-loader', 'postcss-loader']
         })
       }
     ]
