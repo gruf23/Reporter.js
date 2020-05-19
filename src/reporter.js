@@ -39,6 +39,7 @@ window.Reporter = class Reporter {
     holder.append(bar);
     this.setTopOffset(holder.height());
   }
+  // todo: remove bar by id;
   removeBar(bar) {
     bar.remove();
     const holder = jQuery('#reporter_topbarHolder');
@@ -114,6 +115,7 @@ window.Reporter = class Reporter {
       this.removeMessage(oldestMsg);
     }, t);
   }
+  // todo: remove bar by id;
   removeMessage(message) {
     message.removeClass('visible');
     setTimeout(() => {
