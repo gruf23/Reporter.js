@@ -95,6 +95,9 @@ window.Reporter = class Reporter {
     if (payload.closable) {
       message.append('<span class="close"></span>');
     }
+    if (payload.id) {
+      message.attr('data-id', payload.id);
+    }
     if (payload.image) {
       message.addClass('pictured');
       message.append(`<div class="rptr-message-image"><img src="${payload.image}"></div>`);
@@ -115,8 +118,10 @@ window.Reporter = class Reporter {
       this.removeMessage(oldestMsg);
     }, t);
   }
-  // todo: remove bar by id;
   removeMessage(message) {
+    if (message.__proto__.jquery === 'undefined') {
+      message = jQuery(`.rptr-message[data-id="${message}"]`);
+    }
     message.removeClass('visible');
     setTimeout(() => {
       message.remove();

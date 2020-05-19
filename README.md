@@ -60,28 +60,29 @@ That will append holders for bars and message to body of your page.
   `type` - Bar type (`default`, `success`, `warning`, `error`). Basically it's a css class for styling;
 
   `closable` - Boolean value, that set user possibility to hide bar via close button;
+  
+  `id` - custom message id;
 
   Example:
 
   ```javascript
   logHandler.pushMessage({
-    title: 'Success!'
+    title: 'Success!',
     text: 'Sample test.',
     type: 'success',
     image: 'https://example.com/uploads/test/image.jpg',
     closable: true,
+    id: 1,
   })
   ```
 
-  
+* `removeMessage(message)`
 
-* `removeBar(bar)`
-
-  Remove message, that has been provided as jquery object.
+  Remove message, that has been provided as **jquery object** or **message ID**. object.
 
 * `clearMessages()`
 
-  Remove all **visible** messages;
+  Remove all **visible** messages.
 
 * `emptyMessagesQueue()`
 
