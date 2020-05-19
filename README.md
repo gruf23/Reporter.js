@@ -65,7 +65,7 @@ That will append holders for bars and message to body of your page.
 
   ```javascript
   logHandler.pushMessage({
-    title: 'Success!'
+    title: 'Success!',
     text: 'Sample test.',
     type: 'success',
     image: 'https://example.com/uploads/test/image.jpg',
@@ -81,7 +81,7 @@ That will append holders for bars and message to body of your page.
 
 * `clearMessages()`
 
-  Remove all **visible** messages;
+  Remove all **visible** messages.
 
 * `emptyMessagesQueue()`
 
