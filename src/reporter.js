@@ -39,8 +39,10 @@ window.Reporter = class Reporter {
     holder.append(bar);
     this.setTopOffset(holder.height());
   }
-  // todo: remove bar by id;
   removeBar(bar) {
+    if (bar.__proto__.jquery === 'undefined') {
+      bar = jQuery(`.rptr-topbar[data-id="${bar}"]`);
+    }
     bar.remove();
     const holder = jQuery('#reporter_topbarHolder');
     this.setTopOffset(holder.height());

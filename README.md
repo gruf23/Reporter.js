@@ -41,7 +41,7 @@ That will append holders for bars and message to body of your page.
 
 * `removeBar(bar)`
 
-  Remove bar, that has been provided as jquery object.
+  Remove bar, that has been provided as **jquery object** or **bar ID**.
 
 * `clearBars()`
 
@@ -78,7 +78,7 @@ That will append holders for bars and message to body of your page.
 
 * `removeMessage(message)`
 
-  Remove message, that has been provided as **jquery object** or **message ID**. object.
+  Remove message, that has been provided as **jquery object** or **message ID**.
 
 * `clearMessages()`
 
