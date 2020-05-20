@@ -1,3 +1,7 @@
+// todo: Set message hide delay;
+// todo: Set message appear position;
+// todo: Add bar appear animation;
+
 import './styles.scss';
 
 window.Reporter = class Reporter {
