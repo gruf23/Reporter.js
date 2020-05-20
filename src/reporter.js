@@ -1,5 +1,5 @@
 // todo: Set message appear position;
-// todo: Add bar appear animation;
+// todo: Add bar appear animation true/false;
 
 import './styles.scss';
 
@@ -43,6 +43,7 @@ window.Reporter = class Reporter {
     const bar = this.constructBar(payload);
     holder.append(bar);
     this.setTopOffset(holder.height());
+    bar.addClass('visible');
   }
   removeBar(bar) {
     if (bar.__proto__.jquery === 'undefined') {
@@ -58,9 +59,9 @@ window.Reporter = class Reporter {
     this.setTopOffset(0);
   }
   setTopOffset(offset) {
-    const stickySearch = jQuery('.sticky-search');
-    if (stickySearch) stickySearch.css('top', offset);
-    jQuery('body').css('padding-top', offset);
+    jQuery('body').animate({
+      'padding-top': offset
+    }, 300);
   }
   constructBar(payload) {
     const bar = jQuery('<div />');
