@@ -1,11 +1,17 @@
-/* todo: make colors variables w/ default value */
 $toolbarHeight: 32px;
 $messageHeaderHeight: 32px;
 
-$color-success: #6bc259;
-$color-warning: #ffd600;
-$color-error: #f44336;
-$color-info: #f1f1f1;
+$success-bg: #6bc259 !default;
+$success-text: #ffffff !default;
+
+$warning-bg: #ffd600 !default;
+$warning-text: #333333 !default;
+
+$error-bg: #f44336 !default;
+$error-text: #ffffff !default;
+
+$default-bg: #f1f1f1 !default;
+$default-text: #333333 !default;
 
 #reporter_topbarHolder {
   position: fixed;
@@ -51,20 +57,20 @@ $color-info: #f1f1f1;
     }
   }
   &.default {
-    background-color: $color-info;
-    color: #000000;
+    background-color: $default-bg;
+    color: $default-text;
   }
   &.success {
-    background-color: $color-success;
-    color: #ffffff;
+    background-color: $success-bg;
+    color: $success-text;
   }
   &.warning {
-    background-color: $color-warning;
-    color: #ffffff;
+    background-color: $warning-bg;
+    color: $warning-text;
   }
   &.error {
-    background-color: $color-error;
-    color: #ffffff;
+    background-color: $error-bg;
+    color: $error-text;
   }
 }
 #reporter_messageHolder {
@@ -136,20 +142,20 @@ $color-info: #f1f1f1;
     }
   }
   &.default {
-    background-color: $color-info;
-    color: #212121;
+    background-color: $default-bg;
+    color: $default-text;
   }
   &.success {
-    background-color: $color-success;
-    color: #ffffff;
+    background-color: $success-bg;
+    color: $success-text;
   }
   &.warning {
-    background-color: $color-warning;
-    color: #212121;
+    background-color: $warning-bg;
+    color: $warning-text;
   }
   &.error {
-    background-color: $color-error;
-    color: #ffffff;
+    background-color: $error-bg;
+    color: $error-text;
   }
 
   a {
