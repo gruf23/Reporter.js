@@ -7,8 +7,12 @@ A simple, lightweight library for adding info bars/messages to your page. This v
 Create new instance of `Reporter` class:
 
 ```javascript
-var logHandler = new Reporter();
+var logHandler = new Reporter({options});
 ```
+
+Possible options are:  
+
+* `msgHideDelay` - Message visibility time, ms. *Default value is 10000*
 
 That will append holders for bars and message to body of your page.
 

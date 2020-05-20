@@ -1,16 +1,16 @@
-// todo: Set message hide delay;
 // todo: Set message appear position;
 // todo: Add bar appear animation;
 
 import './styles.scss';
 
 window.Reporter = class Reporter {
-  constructor() {
+  constructor(args) {
     if (window.jQuery) {
       jQuery('body')
         .append('<div id="reporter_topbarHolder"></div>')
         .append('<div id="reporter_messageHolder"></div>');
 
+      this.messageHideDelay = args ? parseInt(args.msgHideDelay) : 10000;
       this.messagesQueue = [];
       jQuery(document).on('click', '#reporter_topbarHolder .close', (e) => {
         this.removeBar(jQuery(e.target).parent('.rptr-topbar'));
@@ -92,7 +92,7 @@ window.Reporter = class Reporter {
         holder.children().last().addClass('visible');
       }, 50);
       this.messagesQueue.shift();
-      this.messageCountdown();
+      this.messageCountdown(this.messageHideDelay);
     }
   }
   constructMessage(payload) {
@@ -118,7 +118,7 @@ window.Reporter = class Reporter {
     }
     return message;
   }
-  messageCountdown(t = 10000) {
+  messageCountdown(t) {
     setTimeout(() => {
       const oldestMsg = jQuery('#reporter_messageHolder').children().first();
       this.removeMessage(oldestMsg);
