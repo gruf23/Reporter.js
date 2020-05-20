@@ -1,5 +1,6 @@
 // todo: Set message appear position;
 // todo: Add bar appear animation;
+// todo: max visible messages count;
 
 import './styles.scss';
 

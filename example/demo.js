@@ -8,7 +8,7 @@ jQuery(document).ready(function () {
       closable: jQuery('#bar-closable').is(':checked'),
     })
   });
-  jQuery('#hide-bars').on('click', instance.clearBars());
+  jQuery('#hide-bars').on('click', () => instance.clearBars());
 
   jQuery('#show-popup').on('click', function () {
     instance.pushMessage({
