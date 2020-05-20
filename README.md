@@ -13,6 +13,7 @@ var logHandler = new Reporter({options});
 Possible options are:  
 
 * `msgHideDelay` - Message visibility time, ms. *Default value is 10000*
+* `maxVisibleMsg` - Count of maximum visible messages. *Default value is 5*
 
 That will append holders for bars and message to body of your page.
 

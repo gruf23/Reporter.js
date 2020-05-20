@@ -1,6 +1,5 @@
 // todo: Set message appear position;
 // todo: Add bar appear animation;
-// todo: max visible messages count;
 
 import './styles.scss';
 
@@ -11,7 +10,8 @@ window.Reporter = class Reporter {
         .append('<div id="reporter_topbarHolder"></div>')
         .append('<div id="reporter_messageHolder"></div>');
 
-      this.messageHideDelay = args ? parseInt(args.msgHideDelay) : 10000;
+      this.messageHideDelay = args.msgHideDelay ? parseInt(args.msgHideDelay) : 10000;
+      this.maxVisibleMessages = args.maxVisibleMsg ? parseInt(args.maxVisibleMsg) : 5;
       this.messagesQueue = [];
       jQuery(document).on('click', '#reporter_topbarHolder .close', (e) => {
         this.removeBar(jQuery(e.target).parent('.rptr-topbar'));
@@ -82,7 +82,7 @@ window.Reporter = class Reporter {
   }
   displayMessage() {
     const holder = jQuery('#reporter_messageHolder');
-    if (holder.children().length >= 5) {
+    if (holder.children().length >= this.maxVisibleMessages) {
       return false;
     }
     if (this.messagesQueue.length > 0) {
