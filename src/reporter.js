@@ -7,12 +7,13 @@ import './styles.scss';
 window.Reporter = class Reporter {
   constructor(args = {}) {
     if (window.jQuery) {
-      jQuery('body')
-        .append('<div id="reporter_topbarHolder"></div>')
-        .append('<div id="reporter_messageHolder"></div>');
-
       this.messageHideDelay = typeof args.msgHideDelay !== 'undefined' ? parseInt(args.msgHideDelay) : 10000;
       this.maxVisibleMessages = typeof args.maxVisibleMsg !== 'undefined' ? parseInt(args.maxVisibleMsg) : 5;
+      this.messageBoxPosition = typeof args.messageBoxPosition !== 'undefined' ? args.messageBoxPosition : 'top-left';
+
+      jQuery('body')
+        .append('<div id="reporter_topbarHolder"></div>')
+        .append(`<div id="reporter_messageHolder" class="${this.messageBoxPosition}"></div>`);
       this.messagesQueue = [];
       jQuery(document).on('click', '#reporter_topbarHolder .close', (e) => {
         this.removeBar(jQuery(e.target).parent('.rptr-topbar'));
