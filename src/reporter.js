@@ -142,4 +142,8 @@ window.Reporter = class Reporter {
   emptyMessagesQueue() {
     this.messagesQueue = [];
   }
+  destroy() {
+    jQuery('#reporter_topbarHolder').remove();
+    jQuery('#reporter_messageHolder').remove();
+  }
 };
