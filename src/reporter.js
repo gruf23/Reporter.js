@@ -21,7 +21,6 @@ window.Reporter = class Reporter {
         const message = jQuery(e.target).parents('.rptr-message');
         this.removeMessage(message);
       });
-      const layerWrap = jQuery('#reporter_topbarHolder');
     } else {
       console.error('jQuery is not defined. Cannot init Reporter');
     }
