@@ -1,5 +1,6 @@
 // todo: Set message appear position;
 // todo: Add bar appear animation true/false;
+// todo: make message close animation smooth
 
 import './styles.scss';
 
