@@ -12,8 +12,9 @@ var logHandler = new Reporter({options});
 
 Possible options are:  
 
-* `msgHideDelay` - Message visibility time, ms. *Default value is 10000*
-* `maxVisibleMsg` - Count of maximum visible messages. *Default value is 5*
+* `msgHideDelay` - Message visibility time, ms. *Default value is `10000`*
+* `maxVisibleMsg` - Count of maximum visible messages. *Default value is `5`*
+* `messageBoxPosition` - Position of messages container (`top-left`, `top-right`, `bottom-left`, `bottom-right`). *Default value is `bottom-right`*
 
 That will append holders for bars and message to body of your page.
 
@@ -92,6 +93,10 @@ That will append holders for bars and message to body of your page.
 * `emptyMessagesQueue()`
 
   Clear messages queue. Visible messages will not be affected.
+
+* `destroy()`
+
+  Detach containers and event listeners.
 
 ## Browser support
 * IE 8+
