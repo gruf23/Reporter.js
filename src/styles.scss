@@ -1,10 +1,17 @@
 $toolbarHeight: 32px;
 $messageHeaderHeight: 32px;
 
-$color-success: #6bc259;
-$color-warning: #ffd600;
-$color-error: #f44336;
-$color-info: #f1f1f1;
+$success-bg: #6bc259 !default;
+$success-text: #ffffff !default;
+
+$warning-bg: #ffd600 !default;
+$warning-text: #333333 !default;
+
+$error-bg: #f44336 !default;
+$error-text: #ffffff !default;
+
+$default-bg: #f1f1f1 !default;
+$default-text: #333333 !default;
 
 #reporter_topbarHolder {
   position: fixed;
@@ -19,6 +26,13 @@ $color-info: #f1f1f1;
   line-height: $toolbarHeight;
   padding: 0 32px;
   box-sizing: border-box;
+  opacity: 0;
+  transform: translate3d(0, -30%, 0);
+  transition: .3s ;
+  &.visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
   .close {
     position: absolute;
     top: 0;
@@ -50,34 +64,83 @@ $color-info: #f1f1f1;
     }
   }
   &.default {
-    background-color: $color-info;
-    color: #000000;
+    background-color: $default-bg;
+    color: $default-text;
   }
   &.success {
-    background-color: $color-success;
-    color: #ffffff;
+    background-color: $success-bg;
+    color: $success-text;
   }
   &.warning {
-    background-color: $color-warning;
-    color: #ffffff;
+    background-color: $warning-bg;
+    color: $warning-text;
   }
   &.error {
-    background-color: $color-error;
-    color: #ffffff;
+    background-color: $error-bg;
+    color: $error-text;
   }
 }
 #reporter_messageHolder {
   position: fixed;
-  right: 20px;
-  bottom: 20px;
   width: 300px;
   display: flex;
-  flex-direction: column-reverse;
   z-index: 10000;
+  &.bottom-right {
+    right: 20px;
+    bottom: 20px;
+    flex-direction: column-reverse;
+  }
+  &.bottom-left {
+    left: 20px;
+    bottom: 20px;
+    flex-direction: column-reverse;
+  }
+  &.top-right {
+    right: 20px;
+    top: 20px;
+    flex-direction: column;
+  }
+  &.top-left {
+    left: 20px;
+    top: 20px;
+    flex-direction: column;
+  }
   @media screen and (max-width: 1024px) {
     width: calc(100% - 40px);
     bottom: auto;
     top: 10px;
+  }
+}
+#reporter_messageHolder {
+  &.bottom-right,
+  &.bottom-left {
+    .rptr-message {
+      margin-bottom: 10px;
+      &:first-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+  &.top-right,
+  &.top-left {
+    .rptr-message {
+      margin-top: 10px;
+      &:first-of-type {
+        margin-top: 0;
+      }
+    }
+  }
+  &.top-left,
+  &.bottom-left {
+    .rptr-message {
+      transform: translate3d(-50px, 0, 0);
+    }
+  }
+  &.top-right,
+  &.bottom-right {
+    .rptr-message {
+      transform: translate3d(50px, 0, 0);
+    }
   }
 }
 .rptr-message {
@@ -86,23 +149,18 @@ $color-info: #f1f1f1;
   font-weight: normal;
   position: relative;
   width: 100%;
-  margin-bottom: 10px;
   padding-right: 40px;
   box-sizing: border-box;
   text-align: left;
   box-shadow: 0 0 2px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
-  transform: translate3d(50px, 0, 0);
   border-radius: 5px;
   transition: .5s;
   @media screen and (max-width: 1024px) {
     transform: translate3d(0, -50px, 0);
   }
-  &:first-of-type {
-    margin-bottom: 0;
-  }
   &.visible {
     opacity: 1;
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0) !important;
   }
   .close {
     position: absolute;
@@ -135,20 +193,20 @@ $color-info: #f1f1f1;
     }
   }
   &.default {
-    background-color: $color-info;
-    color: #212121;
+    background-color: $default-bg;
+    color: $default-text;
   }
   &.success {
-    background-color: $color-success;
-    color: #ffffff;
+    background-color: $success-bg;
+    color: $success-text;
   }
   &.warning {
-    background-color: $color-warning;
-    color: #212121;
+    background-color: $warning-bg;
+    color: $warning-text;
   }
   &.error {
-    background-color: $color-error;
-    color: #ffffff;
+    background-color: $error-bg;
+    color: $error-text;
   }
 
   a {

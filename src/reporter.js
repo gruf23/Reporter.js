@@ -1,12 +1,18 @@
+// todo: Add bar appear animation true/false;
+// todo: make message close animation smooth
+
 import './styles.scss';
 
 window.Reporter = class Reporter {
-  constructor() {
+  constructor(args = {}) {
     if (window.jQuery) {
+      this.messageHideDelay = typeof args.msgHideDelay !== 'undefined' ? parseInt(args.msgHideDelay) : 10000;
+      this.maxVisibleMessages = typeof args.maxVisibleMsg !== 'undefined' ? parseInt(args.maxVisibleMsg) : 5;
+      this.messageBoxPosition = typeof args.messageBoxPosition !== 'undefined' ? args.messageBoxPosition : 'top-left';
+
       jQuery('body')
         .append('<div id="reporter_topbarHolder"></div>')
-        .append('<div id="reporter_messageHolder"></div>');
-
+        .append(`<div id="reporter_messageHolder" class="${this.messageBoxPosition}"></div>`);
       this.messagesQueue = [];
       jQuery(document).on('click', '#reporter_topbarHolder .close', (e) => {
         this.removeBar(jQuery(e.target).parent('.rptr-topbar'));
@@ -14,13 +20,6 @@ window.Reporter = class Reporter {
       jQuery(document).on('click', '#reporter_messageHolder .close', (e) => {
         const message = jQuery(e.target).parents('.rptr-message');
         this.removeMessage(message);
-      });
-      const layerWrap = jQuery('#reporter_topbarHolder');
-      jQuery(document).on('headerStickFloat', () => {
-        layerWrap.css('top', jQuery('#sticky-header').height());
-      });
-      jQuery(document).on('headerStickFixed', () => {
-        layerWrap.css('top', 0);
       });
     } else {
       console.error('jQuery is not defined. Cannot init Reporter');
@@ -38,9 +37,12 @@ window.Reporter = class Reporter {
     const bar = this.constructBar(payload);
     holder.append(bar);
     this.setTopOffset(holder.height());
+    bar.addClass('visible');
   }
-  // todo: remove bar by id;
   removeBar(bar) {
+    if (bar.__proto__.jquery === 'undefined') {
+      bar = jQuery(`.rptr-topbar[data-id="${bar}"]`);
+    }
     bar.remove();
     const holder = jQuery('#reporter_topbarHolder');
     this.setTopOffset(holder.height());
@@ -51,9 +53,9 @@ window.Reporter = class Reporter {
     this.setTopOffset(0);
   }
   setTopOffset(offset) {
-    const stickySearch = jQuery('.sticky-search');
-    if (stickySearch) stickySearch.css('top', offset);
-    jQuery('body').css('padding-top', offset);
+    jQuery('body').animate({
+      'padding-top': offset
+    }, 300);
   }
   constructBar(payload) {
     const bar = jQuery('<div />');
@@ -75,7 +77,7 @@ window.Reporter = class Reporter {
   }
   displayMessage() {
     const holder = jQuery('#reporter_messageHolder');
-    if (holder.children().length >= 5) {
+    if (holder.children().length >= this.maxVisibleMessages) {
       return false;
     }
     if (this.messagesQueue.length > 0) {
@@ -86,7 +88,7 @@ window.Reporter = class Reporter {
         holder.children().last().addClass('visible');
       }, 50);
       this.messagesQueue.shift();
-      this.messageCountdown();
+      this.messageCountdown(this.messageHideDelay);
     }
   }
   constructMessage(payload) {
@@ -94,6 +96,9 @@ window.Reporter = class Reporter {
     message.addClass(`rptr-message ${payload.type}`);
     if (payload.closable) {
       message.append('<span class="close"></span>');
+    }
+    if (payload.id) {
+      message.attr('data-id', payload.id);
     }
     if (payload.image) {
       message.addClass('pictured');
@@ -109,14 +114,16 @@ window.Reporter = class Reporter {
     }
     return message;
   }
-  messageCountdown(t = 10000) {
+  messageCountdown(t) {
     setTimeout(() => {
       const oldestMsg = jQuery('#reporter_messageHolder').children().first();
       this.removeMessage(oldestMsg);
     }, t);
   }
-  // todo: remove bar by id;
   removeMessage(message) {
+    if (message.__proto__.jquery === 'undefined') {
+      message = jQuery(`.rptr-message[data-id="${message}"]`);
+    }
     message.removeClass('visible');
     setTimeout(() => {
       message.remove();
@@ -133,5 +140,9 @@ window.Reporter = class Reporter {
   }
   emptyMessagesQueue() {
     this.messagesQueue = [];
+  }
+  destroy() {
+    jQuery('#reporter_topbarHolder').remove();
+    jQuery('#reporter_messageHolder').remove();
   }
 };

@@ -7,8 +7,14 @@ A simple, lightweight library for adding info bars/messages to your page. This v
 Create new instance of `Reporter` class:
 
 ```javascript
-var logHandler = new Reporter();
+var logHandler = new Reporter({options});
 ```
+
+Possible options are:  
+
+* `msgHideDelay` - Message visibility time, ms. *Default value is `10000`*
+* `maxVisibleMsg` - Count of maximum visible messages. *Default value is `5`*
+* `messageBoxPosition` - Position of messages container (`top-left`, `top-right`, `bottom-left`, `bottom-right`). *Default value is `bottom-right`*
 
 That will append holders for bars and message to body of your page.
 
@@ -41,7 +47,7 @@ That will append holders for bars and message to body of your page.
 
 * `removeBar(bar)`
 
-  Remove bar, that has been provided as jquery object.
+  Remove bar, that has been provided as **jquery object** or **bar ID**.
 
 * `clearBars()`
 
@@ -60,6 +66,8 @@ That will append holders for bars and message to body of your page.
   `type` - Bar type (`default`, `success`, `warning`, `error`). Basically it's a css class for styling;
 
   `closable` - Boolean value, that set user possibility to hide bar via close button;
+  
+  `id` - custom message id;
 
   Example:
 
@@ -70,14 +78,13 @@ That will append holders for bars and message to body of your page.
     type: 'success',
     image: 'https://example.com/uploads/test/image.jpg',
     closable: true,
+    id: 1,
   })
   ```
 
-  
+* `removeMessage(message)`
 
-* `removeBar(bar)`
-
-  Remove message, that has been provided as jquery object.
+  Remove message, that has been provided as **jquery object** or **message ID**.
 
 * `clearMessages()`
 
@@ -86,6 +93,10 @@ That will append holders for bars and message to body of your page.
 * `emptyMessagesQueue()`
 
   Clear messages queue. Visible messages will not be affected.
+
+* `destroy()`
+
+  Detach containers and event listeners.
 
 ## Browser support
 * IE 8+
