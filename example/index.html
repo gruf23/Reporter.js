@@ -77,13 +77,29 @@
                     <option value="error">Error</option>
                 </select>
             </div>
-            <div class="checkbox">
-                <input type="checkbox" name="msg-closable" id="msg-closable">
-                <label for="msg-closable">Can be closed</label>
+            <div>
+                <div class="checkbox">
+                    <input type="checkbox" name="msg-closable" id="msg-closable">
+                    <label for="msg-closable">Can be closed</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="msg-picture" id="msg-picture">
+                    <label for="msg-picture">Add picture (unsplash)</label>
+                </div>
             </div>
-            <div class="checkbox">
-                <input type="checkbox" name="msg-picture" id="msg-picture">
-                <label for="msg-picture">Add picture (unsplash)</label>
+            <br>
+            <div class="position">
+                <div class="box">
+                    <input type="radio" id="top-left" name="msg-position" checked>
+                    <label for="top-left"></label>
+                    <input type="radio" id="top-right" name="msg-position">
+                    <label for="top-right"></label>
+                    <input type="radio" id="bottom-left" name="msg-position">
+                    <label for="bottom-left"></label>
+                    <input type="radio" id="bottom-right" name="msg-position">
+                    <label for="bottom-right"></label>
+                </div>
+                <p>Message container position</p>
             </div>
         </div>
         <fieldset>
