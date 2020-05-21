@@ -1,5 +1,6 @@
 jQuery(document).ready(function () {
-  var instance = new Reporter();
+  var instance;
+  instance = new Reporter();
 
   jQuery('#show-bar').on('click', function () {
     instance.pushBar({
@@ -20,4 +21,12 @@ jQuery(document).ready(function () {
     })
   });
   jQuery('#hide-popup').on('click', () => instance.clearMessages());
+
+  jQuery('.position input[type="radio"]').on('change', () => {
+    const newPosition = jQuery('.position input[type="radio"]:checked').attr('id');
+    instance.destroy();
+    instance = new Reporter({
+      messageBoxPosition: newPosition
+    });
+  })
 });
