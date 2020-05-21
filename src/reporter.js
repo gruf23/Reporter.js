@@ -22,12 +22,6 @@ window.Reporter = class Reporter {
         this.removeMessage(message);
       });
       const layerWrap = jQuery('#reporter_topbarHolder');
-      jQuery(document).on('headerStickFloat', () => {
-        layerWrap.css('top', jQuery('#sticky-header').height());
-      });
-      jQuery(document).on('headerStickFixed', () => {
-        layerWrap.css('top', 0);
-      });
     } else {
       console.error('jQuery is not defined. Cannot init Reporter');
     }
