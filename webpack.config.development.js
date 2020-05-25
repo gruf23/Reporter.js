@@ -45,7 +45,6 @@ module.exports = {
   ],
   devServer: {
     contentBase: path.join(__dirname),
-    publicPath: '/dist',
     compress: true,
     overlay: {
       warnings: true,
